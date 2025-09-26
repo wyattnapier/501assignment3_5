@@ -45,11 +45,11 @@ class MainActivity : ComponentActivity() {
 fun LoginForm(modifier: Modifier = Modifier) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var message by remember { mutableStateOf<String?>(null) }
+    var message by remember { mutableStateOf<String?>(null) } // initialized null so message is initially hidden
     // still recomputes on every change due to recomposing, but not between so val
     val validInput = username.isNotEmpty() && password.isNotEmpty()
 
-    // align everything vertically
+    // align everything vertically and in center of page
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -94,6 +94,7 @@ fun LoginForm(modifier: Modifier = Modifier) {
             content = {Text("Login")}
         )
 
+        // status message that appears on login form submission
         message?.let {
             Text(
                 text = it,
