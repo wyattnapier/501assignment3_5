@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,14 +61,22 @@ fun LoginForm(modifier: Modifier = Modifier) {
             value = username,
             onValueChange = { username = it },
             label = { Text("Username") },
-//            textStyle = MaterialTheme.typography.bodyMedium,
-//            colors = MaterialTheme.colorScheme.primary,
+            colors = TextFieldDefaults.colors(
+                focusedTextColor = MaterialTheme.colorScheme.primary,
+                unfocusedTextColor = MaterialTheme.colorScheme.secondary,
+            ),
+            textStyle = MaterialTheme.typography.bodyLarge
         )
 
         TextField(
             value = password,
             onValueChange = { password = it },
             label = { Text("Password") },
+            colors = TextFieldDefaults.colors(
+                focusedTextColor = MaterialTheme.colorScheme.primary,
+                unfocusedTextColor = MaterialTheme.colorScheme.secondary,
+            ),
+            textStyle = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(vertical = 8.dp) // add space between inputs
         )
 
